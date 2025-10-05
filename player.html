@@ -1,33 +1,50 @@
-// Contenuto corretto e completo per il file sw.js
-
-// QUESTO HEADER È ESSENZIALE PER RISOLVERE IL PROBLEMA DEL DOMINIO
-self.skipWaiting();
-
-const CACHE_NAME = 'radio-cache-v1';
-const urlsToCache = [
-  '/',
-  '/app-rtm',
-  'https://grandinettirita-creator.github.io/rtm-pwa-files/manifest.json',
-];
-
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        // Aggiungiamo le risorse alla cache per la modalità offline
-        return cache.addAll(urlsToCache);
-      })
-  );
-});
-
-self.addEventListener('fetch', event => {
-  event.respondith(
-    caches.match(event.request)
-      .then(response => {
-        if (response) {
-          return response;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="0; url=https://dashing-narwhal-02897e.netlify.app">
+    <title>Download App RTM</title>
+</head>
+<body>
+    <p>Se non vieni reindirizzato, <a href="https://dashing-narwhal-02897e.netlify.app">clicca qui</a>.</p>
+</body>
+</html>
+https://sites.google.com/
+https://dashing-narwhal-02897e.netlify.app
+/* /player.html 200
+<!DOCTYPE html>
+<html>
+<head>
+    <title>App RTM - Reindirizzamento</title>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
         }
-        return fetch(event.request);
-      })
-    );
-});
+    </script>
+    <meta http-equiv="refresh" content="1; url=https://radiotorinomusica.it/app-rtm">
+</head>
+<body>
+    <p>L'app si sta installando. Verrai reindirizzato tra poco...</p>
+</body>
+</html>
+www.radiotorinomusica.it
+APP RTM | Radio Torino Musica
+
+Questa è la nostra App scaricala per IOS o Android
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>App RTM - Reindirizzamento</title>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js');
+        }
+    </script>
+    <meta http-equiv="refresh" content="1; url=https://radiotorinomusica.it/app-rtm">
+</head>
+<body>
+    <p>L'app si sta installando. Verrai reindirizzato tra poco...</p>
+</body>
+</html>
