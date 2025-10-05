@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'radio-cache-v2';
+const CACHE_NAME = 'radio-cache-v3';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -35,5 +35,6 @@ self.addEventListener('fetch', function(event) {
       })
   );
 });
+
 
 
