@@ -1,23 +1,27 @@
-// Contenuto per il file sw.js
+// Contenuto corretto e completo per il file sw.js
+
+// QUESTO HEADER È ESSENZIALE PER RISOLVERE IL PROBLEMA DEL DOMINIO
+self.skipWaiting();
+
 const CACHE_NAME = 'radio-cache-v1';
 const urlsToCache = [
   '/',
   '/app-rtm',
   'https://grandinettirita-creator.github.io/rtm-pwa-files/manifest.json',
-  // Aggiungere qui eventuali risorse importanti come loghi o fogli di stile
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
+        // Aggiungiamo le risorse alla cache per la modalità offline
         return cache.addAll(urlsToCache);
       })
   );
 });
 
 self.addEventListener('fetch', event => {
-  event.respondWith(
+  event.respondith(
     caches.match(event.request)
       .then(response => {
         if (response) {
