@@ -1,0 +1,79 @@
+{
+  "background_color": "#ffffff",
+  "description": "Questa è la nostra App scaricala per IOS o Android",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "www.radiotorinomusica",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "www.radiotorinomusica",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "https://primary.jwwb.nl/public/p/p/l/temp-tckphajgtxyhcnmmyonx/favicon.png?bust=1750285484",
+      "type": "image/jpeg",
+      "sizes": "48x48",
+      "isSquare": true,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": true,
+      "width": 48,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    },
+    {
+      "src": "https://primary.jwwb.nl/public/p/p/l/temp-tckphajgtxyhcnmmyonx/touch-icon-iphone.png?bust=1750285484",
+      "type": "image/jpeg",
+      "sizes": "60x60",
+      "isSquare": true,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": true,
+      "width": 60,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    },
+    {
+      "src": "https://primary.jwwb.nl/public/p/p/l/temp-tckphajgtxyhcnmmyonx/touch-icon-ipad.png?bust=1750285484",
+      "type": "image/jpeg",
+      "sizes": "76x76",
+      "isSquare": true,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": true,
+      "width": 76,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    },
+    {
+      "src": "https://primary.jwwb.nl/public/p/p/l/temp-tckphajgtxyhcnmmyonx/touch-icon-iphone-retina.png?bust=1750285484",
+      "type": "image/jpeg",
+      "sizes": "120x120",
+      "isSquare": true,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": true,
+      "width": 120,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    },
+    {
+      "src": "https://primary.jwwb.nl/public/p/p/l/temp-tckphajgtxyhcnmmyonx/touch-icon-ipad-retina.png?bust=1750285484",
+      "type": "image/jpeg",
+      "sizes": "152x152",
+      "isSquare": true,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": true,
+      "width": 152,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    }
+  ]
+}
