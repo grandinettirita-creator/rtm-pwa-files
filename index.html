@@ -1,9 +1,11 @@
-> Rita:
 <!DOCTYPE html>
 <html>
 <head>
     <title>Radio Torino Musica - App Installazione</title>
     
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="R.T.M.">
     <style>
         /* Stili CSS del Player (li ho abbreviati qui per brevità, ma incolla tutto il tuo CSS) */
         .player-container {
@@ -106,14 +108,9 @@
 
         // --- Configurazione ---
         const defaultWebRadioUrl = 'https://a8.asurahosting.com:8890/radio.mp3';
-        const defaultAlbumArt = '/100.png'; // CORRETTO!
+        const defaultAlbumArt = '/100.png'; // CORRETTO (JS)
 
         // --- Funzionalità ---
         function updateCurrentItem(title, type, imageUrl) {
             currentItemTitle.textContent = title;
-            currentItemType.textContent = type;
-            albumArt.src = imageUrl || defaultAlbumArt;
-        }
-        
-        // ******************************************
-        // RIGA AGGIUNTA PER AVVIARE LA RADIO E IL LOGO INIZIALE
+            currentItemType.
