@@ -1,8 +1,4 @@
 // Contenuto corretto e completo per il file sw.js
-
-// QUESTO HEADER È ESSENZIALE PER RISOLVERE IL PROBLEMA DEL DOMINIO
-self.skipWaiting();
-
 const CACHE_NAME = 'radio-cache-v1';
 const urlsToCache = [
   '/',
@@ -31,3 +27,4 @@ self.addEventListener('fetch', event => {
       })
     );
 });
+
