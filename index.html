@@ -1,3 +1,4 @@
+> Rita:
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,7 +70,7 @@
     <div class="player-container">
         <div class="main-player-content">
             <div class="album-art-container">
-                <img id="albumArt" class="album-art" src="https://via.placeholder.com/60x60?text=Radio" alt="Immagine Radio">
+                <img id="albumArt" class="album-art" src="/100.png" alt="Immagine Logo Radio">
             </div>
 
             <div class="current-item-info">
@@ -105,7 +106,7 @@
 
         // --- Configurazione ---
         const defaultWebRadioUrl = 'https://a8.asurahosting.com:8890/radio.mp3';
-        const defaultAlbumArt = 'https://via.placeholder.com/60x60?text=Radio';
+        const defaultAlbumArt = '/100.png'; // CORRETTO!
 
         // --- Funzionalità ---
         function updateCurrentItem(title, type, imageUrl) {
@@ -113,5 +114,6 @@
             currentItemType.textContent = type;
             albumArt.src = imageUrl || defaultAlbumArt;
         }
-
         
+        // ******************************************
+        // RIGA AGGIUNTA PER AVVIARE LA RADIO E IL LOGO INIZIALE
