@@ -1,30 +1,38 @@
-// Contenuto corretto e completo per il file sw.js
+
 const CACHE_NAME = 'radio-cache-v1';
 const urlsToCache = [
   '/',
-  '/app-rtm',
-  'https://grandinettirita-creator.github.io/rtm-pwa-files/manifest.json',
+  '/index.html',
+  '/manifest.json',
+  '/192.png',
+  '/512.png',
+  '/1024.png',
+  '/sw.js'
 ];
 
-self.addEventListener('install', event => {
+// Installazione: memorizza tutti i file nella cache
+self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        // Aggiungiamo le risorse alla cache per la modalità offline
+      .then(function(cache) {
+        console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
   );
 });
 
-self.addEventListener('fetch', event => {
-  event.respondith(
+// Fetch: intercetta le richieste e usa la cache
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
     caches.match(event.request)
-      .then(response => {
+      .then(function(response) {
+        // Risponde con la risorsa in cache se trovata
         if (response) {
           return response;
         }
+        // Altrimenti, fa una richiesta di rete
         return fetch(event.request);
       })
-    );
+  );
 });
 
