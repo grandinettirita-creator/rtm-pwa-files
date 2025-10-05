@@ -1,50 +1,115 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=https://dashing-narwhal-02897e.netlify.app">
-    <title>Download App RTM</title>
-</head>
-<body>
-    <p>Se non vieni reindirizzato, <a href="https://dashing-narwhal-02897e.netlify.app">clicca qui</a>.</p>
-</body>
-</html>
-https://sites.google.com/
-https://dashing-narwhal-02897e.netlify.app
-/* /player.html 200
-<!DOCTYPE html>
-<html>
-<head>
-    <title>App RTM - Reindirizzamento</title>
+    <title>Radio Torino Musica - App Installazione</title>
+    
+    <style>
+        /* Stili CSS del Player (li ho abbreviati qui per brevità, ma incolla tutto il tuo CSS) */
+        .player-container {
+        background-color: transparent;
+        padding: 8px;
+        border-radius: 8px;
+        box-shadow: none;
+        width: fit-content;
+        max-width: 95%;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: translateY(0);
+        transition: transform 0.3s ease-in-out;
+        }
+        .player-container:hover {
+        transform: translateY(-2px);
+        }
+        /* ... incolla qui il resto del tuo CSS, se non c'è già ... */
+        /* Stili aggiunti per PWA */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 20px;
+        }
+        .install-guide {
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #333; /* Colore testo guida */
+        }
+        .hidden {
+            display: none;
+        }
+        /* FINE STILI */
+    </style>
+
     <link rel="manifest" href="/manifest.json">
+    
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js');
+            navigator.serviceWorker.register('/sw.js', { scope: './' })
+            .then(function(reg) {
+                console.log('Service worker registered! Scope: ' + reg.scope);
+            });
         }
     </script>
-    <meta http-equiv="refresh" content="1; url=https://radiotorinomusica.it/app-rtm">
 </head>
 <body>
-    <p>L'app si sta installando. Verrai reindirizzato tra poco...</p>
-</body>
-</html>
-www.radiotorinomusica.it
-APP RTM | Radio Torino Musica
+    
+    <div class="install-guide">
+        <h1>Tocca "Aggiungi a schermata Home"</h1>
+        <p>Una volta installata, l'app funzionerà a schermo intero!</p>
+    </div>
+    
+    <div class="player-container">
+        <div class="main-player-content">
+            <div class="album-art-container">
+                <img id="albumArt" class="album-art" src="https://via.placeholder.com/60x60?text=Radio" alt="Immagine Radio">
+            </div>
 
-Questa è la nostra App scaricala per IOS o Android
+            <div class="current-item-info">
+                <div id="currentItemTitle" class="current-item-title">Radio Torino Musica </div>
+                <div id="currentItemType" class="current-item-type">Ciriè Torino</div>
+            </div>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>App RTM - Reindirizzamento</title>
-    <link rel="manifest" href="/manifest.json">
+            <audio id="webRadioPlayer" controls autoplay>
+                Il tuo browser non supporta l'elemento audio.
+            </audio>
+        </div>
+
+        <div class="history-section">
+            <button id="toggleHistoryButton">Mostra Playlist</button>
+            <div id="historyContent" class="history-content hidden">
+                <h2>Playlist</h2>
+                <iframe src="https://a8.asurahosting.com/public/radio_torino_musica/history?theme=dark" frameborder="0" class="history-iframe"></iframe>
+            </div>
+        </div>
+
+    </div>
     <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js');
+        // Riferimenti agli elementi HTML
+        const webRadioPlayer = document.getElementById('webRadioPlayer');
+        const albumArt = document.getElementById('albumArt');
+        const currentItemTitle = document.getElementById('currentItemTitle');
+        const currentItemType = document.getElementById('currentItemType');
+
+        // Riferimenti per la sezione cronologia
+        const toggleHistoryButton = document.getElementById('toggleHistoryButton');
+        const historyContent = document.getElementById('historyContent');
+
+
+        // --- Configurazione ---
+        const defaultWebRadioUrl = 'https://a8.asurahosting.com:8890/radio.mp3';
+        const defaultAlbumArt = 'https://via.placeholder.com/60x60?text=Radio';
+
+        // --- Funzionalità ---
+        function updateCurrentItem(title, type, imageUrl) {
+            currentItemTitle.textContent = title;
+            currentItemType.textContent = type;
+            albumArt.src = imageUrl || defaultAlbumArt;
         }
-    </script>
-    <meta http-equiv="refresh" content="1; url=https://radiotorinomusica.it/app-rtm">
-</head>
-<body>
-    <p>L'app si sta installando. Verrai reindirizzato tra poco...</p>
-</body>
-</html>
