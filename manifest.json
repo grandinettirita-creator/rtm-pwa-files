@@ -1,6 +1,6 @@
 {
   "name": "La Mia Radio",
-  "short_name": "Radio",
+  "short_name": "RTM",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#000000",
