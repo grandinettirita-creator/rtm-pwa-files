@@ -1,147 +1,108 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="it">
 <head>
-    <title>Radio Torino Musica - App Installazione</title>
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="R.T.M.">
-    <style>
-        /* Stili CSS del Player (li ho abbreviati qui per brevità, ma incolla tutto il tuo CSS) */
-        .player-container {
-        background-color: transparent;
-        padding: 8px;
-        border-radius: 8px;
-        box-shadow: none;
-        width: fit-content;
-        max-width: 95%;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        transform: translateY(0);
-        transition: transform 0.3s ease-in-out;
-        }
-        .player-container:hover {
-        transform: translateY(-2px);
-        }
-        /* ... incolla qui il resto del tuo CSS, se non c'è già ... */
-        /* Stili aggiunti per PWA */
-        body {
-            font-family: sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            margin: 0;
-            padding-top: 20px;
-        }
-        .install-guide {
-            text-align: center;
-            padding: 15px;
-            margin-bottom: 20px;
-            color: #333; /* Colore testo guida */
-        }
-        .hidden {
-            display: none;
-        }
-        /* FINE STILI */
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Radio Torino Musica</title>
 
-    <link rel="manifest" href="/manifest.json">
-    
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js', { scope: './' })
-            .then(function(reg) {
-                console.log('Service worker registered! Scope: ' + reg.scope);
-            });
-        }
-    </script>
+  <!-- Manifest e colori -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#0D1E5A">
+
+  <!-- Per iPhone -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+
+  <style>
+    :root{
+      --orange:#F85E3C;
+      --blue:#0D1E5A;
+      --text:#FFFFFF;
+    }
+    body {
+      margin:0;
+      font-family: 'Arial', sans-serif;
+      background: var(--blue);
+      color: var(--text);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    header {
+      background: var(--orange);
+      width: 100%;
+      padding: 20px 0;
+    }
+    header img {
+      width: 160px;
+      height: auto;
+      border-radius: 12px;
+    }
+    h1 {
+      margin: 16px 0 8px;
+      font-size: 22px;
+    }
+    audio {
+      margin-top: 30px;
+      width: 90%;
+      max-width: 400px;
+    }
+    a.sito {
+      display: inline-block;
+      margin-top: 40px;
+      color: var(--orange);
+      background: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    a.sito:hover {
+      background: var(--orange);
+      color: #fff;
+    }
+    footer {
+      position: fixed;
+      bottom: 10px;
+      font-size: 13px;
+      opacity: 0.7;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-    
-    <div class="install-guide">
-        <h1>Tocca "Aggiungi a schermata Home"</h1>
-        <p>Una volta installata, l'app funzionerà a schermo intero!</p>
-    </div>
-    
-    <div class="player-container">
-        <div class="main-player-content">
-            <div class="album-art-container">
-                <img id="albumArt" class="album-art" src="/100.png" alt="Immagine Logo Radio">
-            </div>
+  <header>
+    <img src="./icon-512.png" alt="Logo Radio Torino Musica">
+  </header>
 
-            <div class="current-item-info">
-                <div id="currentItemTitle" class="current-item-title">Radio Torino Musica </div>
-                <div id="currentItemType" class="current-item-type">Ciriè Torino</div>
-            </div>
+  <h1>Radio Torino Musica</h1>
+  <p>La musica che racconta la nostra storia 🎶</p>
 
-            <audio id="webRadioPlayer" controls autoplay>
-                Il tuo browser non supporta l'elemento audio.
-            </audio>
-        </div>
+  <audio controls preload="none" playsinline>
+    <source src="https://a8.asurahosting.com:8890/radio.mp3" type="audio/mpeg">
+    Il tuo browser non supporta l'audio.
+  </audio>
 
-        <div class="history-section">
-            <button id="toggleHistoryButton">Mostra Playlist</button>
-            <div id="historyContent" class="history-content hidden">
-                <h2>Playlist</h2>
-                <iframe src="https://a8.asurahosting.com/public/radio_torino_musica/history?theme=dark" frameborder="0" class="history-iframe"></iframe>
-            </div>
-        </div>
+  <a class="sito" href="https://radiotorinomusica.it" target="_blank" rel="noopener">
+    🌐 Visita il sito ufficiale
+  </a>
 
-    </div>
-    <script>
-        // Riferimenti agli elementi HTML
-        const webRadioPlayer = document.getElementById('webRadioPlayer');
-        const albumArt = document.getElementById('albumArt');
-        const currentItemTitle = document.getElementById('currentItemTitle');
-        const currentItemType = document.getElementById('currentItemType');
+  <footer>
+    Tocca play per iniziare l’ascolto — buona musica da Torino 🎧
+  </footer>
 
-        // Riferimenti per la sezione cronologia
-        const toggleHistoryButton = document.getElementById('toggleHistoryButton');
-        const historyContent = document.getElementById('historyContent');
-
-
-        // --- Configurazione ---
-        const defaultWebRadioUrl = 'https://a8.asurahosting.com:8890/radio.mp3';
-        const defaultAlbumArt = '/100.png'; 
-
-        // --- Funzionalità ---
-        function updateCurrentItem(title, type, imageUrl) {
-            currentItemTitle.textContent = title;
-            currentItemType.textContent = type;
-            albumArt.src = imageUrl || defaultAlbumArt;
-        }
-        
-        // **********************************************
-        // AVVIO E LOGICA FINALE (CORREZIONE AVVIO AUDIO)
-        // **********************************************
-        webRadioPlayer.src = defaultWebRadioUrl; 
-        updateCurrentItem('Radio Torino Musica', 'Ciriè Torino Italia', defaultAlbumArt); 
-
-        // FORZA L'AVVIO SUI DISPOSITIVI MOBILI 
-        // Se l'audio non parte subito, l'utente dovrà premere play.
-        webRadioPlayer.play().catch(error => {
-            console.log("Riproduzione automatica bloccata da iOS: " + error);
-        });
-
-        // Funzione per mostrare/nascondere la sezione cronologia
-        toggleHistoryButton.addEventListener('click', () => {
-            historyContent.classList.toggle('hidden');
-
-            if (historyContent.classList.contains('hidden')) {
-                toggleHistoryButton.textContent = 'Mostra Playlist';
-            } else {
-                toggleHistoryButton.textContent = 'Nascondi Playlist';
-            }
-        });
-
-        // Assicurati che il bottone abbia il testo corretto all'avvio (la cronologia è inizialmente nascosta)
-        toggleHistoryButton.textContent = 'Mostra Playlist';
-    </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js')
+        .then(() => console.log("Service Worker registrato!"))
+        .catch(err => console.error("Errore SW:", err));
+    }
+  </script>
 </body>
 </html>
