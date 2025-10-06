@@ -108,9 +108,40 @@
 
         // --- Configurazione ---
         const defaultWebRadioUrl = 'https://a8.asurahosting.com:8890/radio.mp3';
-        const defaultAlbumArt = '/100.png'; // CORRETTO (JS)
+        const defaultAlbumArt = '/100.png'; 
 
         // --- Funzionalità ---
         function updateCurrentItem(title, type, imageUrl) {
             currentItemTitle.textContent = title;
-            currentItemType.
+            currentItemType.textContent = type;
+            albumArt.src = imageUrl || defaultAlbumArt;
+        }
+        
+        // **********************************************
+        // AVVIO E LOGICA FINALE (CORREZIONE AVVIO AUDIO)
+        // **********************************************
+        webRadioPlayer.src = defaultWebRadioUrl; 
+        updateCurrentItem('Radio Torino Musica', 'Ciriè Torino Italia', defaultAlbumArt); 
+
+        // FORZA L'AVVIO SUI DISPOSITIVI MOBILI 
+        // Se l'audio non parte subito, l'utente dovrà premere play.
+        webRadioPlayer.play().catch(error => {
+            console.log("Riproduzione automatica bloccata da iOS: " + error);
+        });
+
+        // Funzione per mostrare/nascondere la sezione cronologia
+        toggleHistoryButton.addEventListener('click', () => {
+            historyContent.classList.toggle('hidden');
+
+            if (historyContent.classList.contains('hidden')) {
+                toggleHistoryButton.textContent = 'Mostra Playlist';
+            } else {
+                toggleHistoryButton.textContent = 'Nascondi Playlist';
+            }
+        });
+
+        // Assicurati che il bottone abbia il testo corretto all'avvio (la cronologia è inizialmente nascosta)
+        toggleHistoryButton.textContent = 'Mostra Playlist';
+    </script>
+</body>
+</html>
