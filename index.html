@@ -55,9 +55,14 @@
       width: 90%;
       max-width: 400px;
     }
+    p.big-play {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
     a.sito {
       display: inline-block;
-      margin-top: 40px;
+      margin-top: 20px;
       color: var(--orange);
       background: #fff;
       padding: 10px 20px;
@@ -88,17 +93,21 @@
   <h1>Radio Torino Musica</h1>
   <p>LA PRIMA WEB RADIO DI CIRIE' (To) - MUSICA INDIPENDENTE 🎶</p>
 
-  <audio controls preload="none" playsinline>
+  <audio id="radioPlayer" controls preload="none" playsinline>
     <source src="https://a8.asurahosting.com:8890/radio.mp3" type="audio/mpeg">
     Il tuo browser non supporta l'audio.
   </audio>
 
+  <!-- Testo grande sotto il player -->
+  <p class="big-play">Clicca il play per ascoltare</p>
+
+  <!-- Bottone visita sito -->
   <a class="sito" href="https://radiotorinomusica.it" target="_blank" rel="noopener">
     🌐 Visita il sito ufficiale
   </a>
 
   <footer>
-    Tocca play per iniziare l’ascolto — buona musica da Ciriè-To Piemonte-Italia🎧
+    Radio Torino Musica, WE LOVE ❤️ da Ciriè, Torino, Piemonte, Italia, Mondo 🎧
   </footer>
 
   <script>
